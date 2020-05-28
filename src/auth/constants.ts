@@ -1,3 +1,4 @@
-export const jwtConstants = {
-  secret: 'secretKey',
+export const constants = {
+  jwtSecret: 'secretKey',
+  bcryptRounds: 10,
 };

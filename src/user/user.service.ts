@@ -9,7 +9,7 @@ export class UserService {
     @InjectModel(User.name) private readonly user: ReturnModelType<typeof User>,
   ) {}
 
-  async create(user: Omit<User, '_id'>) {
+  async create(user: Omit<User, '_id' | 'id'>) {
     const createdUser = await this.user.create(user);
     return createdUser ? new User(createdUser.toObject()) : undefined;
   }
