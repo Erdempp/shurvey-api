@@ -40,6 +40,7 @@ export class SurveyController {
 
   @Delete(':id')
   async removeById(@Param('id') id: Survey['id']) {
+    // Check if creator == currentUser
     return this.surveyService.removeById(id);
   }
 
@@ -48,6 +49,7 @@ export class SurveyController {
     @Body() dto: CreateQuestionDto,
     @Param('id') id: Question['id'],
   ) {
+    // Check if creator == currentUser
     return this.surveyService.addQuestion(
       id,
       new Question({ question: dto.question, openQuestion: dto.openQuestion }),
@@ -59,6 +61,7 @@ export class SurveyController {
     @Body() { answer }: CreateAnswerDto,
     @Param('qId') id: string,
   ) {
+    // Check if creator == currentUser
     return this.surveyService.addAnswer(id, answer);
   }
 }
