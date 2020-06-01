@@ -23,4 +23,9 @@ export class UserService {
     const user = await this.user.findOne({ email });
     return user ? new User(user.toObject()) : undefined;
   }
+
+  async getAll() {
+    const users = await this.user.find();
+    return users ? users.map(u => new User(u.toObject())) : undefined;
+  }
 }

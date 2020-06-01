@@ -24,6 +24,9 @@ export class User {
   @prop({ required: true })
   @Exclude()
   password: string;
+
+  @prop({ default: 0 })
+  score?: number;
 }
 
 export const UserModel = getModelForClass(User);
